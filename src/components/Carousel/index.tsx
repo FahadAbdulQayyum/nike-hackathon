@@ -40,33 +40,18 @@ export function CarouselImage({ data }: any) {
                         <div
                             className="flex justify-center items-center"
                         >
-                            {/* {data.map((v: any) => {
-                                return ( */}
                             <Card
-                            // className="w-full bg-orange-400"
                             >
                                 <CardContent
                                     className="flex items-center justify-center p-6"
                                 >
                                     <CarouselItem>
-                                        {/* <span className="text-4xl font-semibold">{index + 1}</span>*/}
                                         <span className="text-4xl font-semibold">
                                             {data[index].title + 'f'}
                                         </span>
-
-
-                                        {/* <span
-                                            className="bg-black text-white"
-                                        > */}
-                                        {/* {v.title} */}
-                                        {/* {data.map((v: any) => {
-                                        })} */}
-                                        {/* </span> */}
                                     </CarouselItem>
                                 </CardContent>
                             </Card>
-                            {/* )
-                            })} */}
                         </div>
                     </CarouselItem>
                 ))}
