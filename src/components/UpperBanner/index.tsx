@@ -3,7 +3,7 @@ import React from 'react'
 const UpperBanner = () => {
     return (
         <div
-            className="bg-black flex justify-between py-5 px-standardSize"
+            className="bg-black text-white flex justify-between py-5 px-standardSize"
         >
             <div className="left-portion"></div>
             <div className="mid-portion flex space-x-5">
