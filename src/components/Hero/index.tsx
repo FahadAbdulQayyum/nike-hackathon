@@ -10,16 +10,19 @@ const Hero = () => {
         {
             icon: './assets/apple-logo.svg',
             title: 'iPhone 14 Series',
-            HeroTitle: 'Up to 10% off Voucher',
+            heroTitle: 'Up to 10% off Voucher',
             button: 'Shop Now',
-            btnIcon: <RiArrowRightLine />
+            btnIcon: <RiArrowRightLine />,
+            heroIcon: './assets/iphone-in-hero.svg'
         },
         {
             icon: './assets/apple-logo.svg',
             title: 'iPhone 15 Series',
             HeroTitle: 'Up to 10% off Voucher',
             button: 'Shop Now',
-            btnIcon: <RiArrowRightLine />
+            btnIcon: <RiArrowRightLine />,
+            heroIcon: './assets/iphone-in-hero.svg'
+
         },
     ]
 
@@ -29,8 +32,7 @@ const Hero = () => {
                 <CustomCategory />
             </div>
             <div
-                className="flex items-center justify-center w-full"
-
+                className="flex items-center justify-center w-full ml-14"
             >
                 <CarouselImage data={data} />
                 {/* <Image src={"/assets/Exclusive.svg"} alt="hero" width={300} height={300} /> */}

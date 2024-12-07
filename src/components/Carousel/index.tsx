@@ -11,6 +11,7 @@ import {
     CarouselPrevious,
     type CarouselApi
 } from "@/components/ui/carousel"
+import Image from "next/image"
 
 export function CarouselImage({ data }: any) {
     const [api, setApi] = useState<CarouselApi>()
@@ -38,24 +39,52 @@ export function CarouselImage({ data }: any) {
                 {Array.from({ length: data.length }).map((_, index) => (
                     <CarouselItem key={index}>
                         <div
-                            className="flex justify-center items-center"
+                            className="flex justify-center items-center bg-black "
                         >
                             <Card
+                                className="w-full"
                             >
                                 <CardContent
-                                    className="flex items-center justify-center p-6"
+                                    className="flex items-center justify-center p-10 bg-black text-white w-full"
                                 >
-                                    <CarouselItem>
-                                        <span className="text-4xl font-semibold">
-                                            {data[index].title + 'f'}
+                                    <span className="flex w-full justify-between">
+                                        <span
+                                            className="flex flex-col w-[33%] space-y-4"
+                                        >
+                                            <span
+                                                className="flex items-center"
+                                            >
+                                                <Image src={data[index].icon} alt={data[index].title} width={50} height={50} />
+                                                <p
+                                                    className="text-sm ml-5"
+                                                >{data[index].title}</p>
+                                            </span>
+                                            <span>
+                                                <p
+                                                    className="text-5xl font-bold"
+                                                >{data[index].heroTitle}</p>
+                                            </span>
+                                            <span
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <p
+                                                    // className="underline"
+                                                    className="border-b-[2px]"
+                                                >{data[index].button}</p>
+                                                {data[index].btnIcon}
+                                            </span>
                                         </span>
-                                    </CarouselItem>
+                                        <span>
+                                            <Image src={data[index].heroIcon} alt={data[index].title} width={400} height={400} />
+                                        </span>
+                                    </span>
                                 </CardContent>
                             </Card>
                         </div>
                     </CarouselItem>
-                ))}
-            </CarouselContent>
+                ))
+                }
+            </CarouselContent >
             <CarouselPrevious />
             <CarouselNext />
         </Carousel >
