@@ -103,7 +103,10 @@ export function CarouselImage({ flash, data }: any) {
                                             <Image src={_.image} alt={_.title} width={100} height={100} className="z-10" />
                                         </span>
                                         <span>{_.title}</span>
-                                        <span>{_.price}</span>
+                                        <span>
+                                            <span>{_.price}</span>
+                                            <span className="">{_.originalPrice}</span>
+                                        </span>
                                         <span>{_.starCounts}</span>
                                     </span>
                                 </CardContent>
