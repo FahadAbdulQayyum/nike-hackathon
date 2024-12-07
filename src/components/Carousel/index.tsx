@@ -86,44 +86,30 @@ export function CarouselImage({ flash, data }: any) {
                     ))
                 ) : (
                     data?.map((_: any, index: any) => (
-                        <CarouselItem key={index} className=" pl-1 md:basis-1/2 lg:basis-1/5">
+                        <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/5 rounded-none">
                             <div
                                 className="flex justify-center items-center"
                             >
-                                <Card
-                                // className="w-full"
+                                {/* <Card
+                                // className="bg-red-300"
+                                > */}
+                                <CardContent
+                                    className="flex items-center justify-center text-black"
                                 >
-                                    <CardContent
-                                        className="flex flex-col items-center justify-center text-black"
+                                    <span
+                                        className="flex flex-col justify-between"
                                     >
-                                        {/* <span
-                                            className="flex flex-col justify-between"
-                                        > */}
-                                        <span
-                                            className="flex flex-col justify-between"
-                                        >
-                                            <span className="bg-primaryy h-48 flex items-center justify-center">
-                                                <Image src={_.image} alt={_.title} width={100} height={100} className="z-10" />
-                                            </span>
-                                            <span>{_.title}</span>
-                                            <span>{_.price}</span>
-                                            <span>{_.starCounts}</span>
+                                        <span className="bg-primaryy h-48 w-full flex items-center justify-center">
+                                            <Image src={_.image} alt={_.title} width={100} height={100} className="z-10" />
                                         </span>
-                                        {/* </span> */}
-                                    </CardContent>
-                                </Card>
+                                        <span>{_.title}</span>
+                                        <span>{_.price}</span>
+                                        <span>{_.starCounts}</span>
+                                    </span>
+                                </CardContent>
+                                {/* </Card> */}
                             </div>
                         </CarouselItem>
-
-                        // <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-                        //     <div className="p-1">
-                        //         <Card>
-                        //             <CardContent className="flex aspect-square items-center justify-center p-6">
-                        //                 <span className="text-2xl font-semibold">{index + 1}</span>
-                        //             </CardContent>
-                        //         </Card>
-                        //     </div>
-                        // </CarouselItem>
                     ))
                 )}
             </CarouselContent >
