@@ -1,16 +1,15 @@
+import { Poppins, Roboto } from "next/font/google";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const myfont = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "300", "700"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const robotoFont = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,9 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={myfont.className}>
+        {/* <div className={robotoFont.className}>This is header</div> */}
         {children}
       </body>
     </html>

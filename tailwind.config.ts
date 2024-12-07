@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#F5F5F5"
       },
       spacing: {
         standardSize: "50px",
