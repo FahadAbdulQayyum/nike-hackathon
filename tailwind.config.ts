@@ -18,6 +18,7 @@ const config: Config = {
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondaryy: "#000000",
+  			tertiary: "#DB4444",
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
@@ -61,7 +62,10 @@ const config: Config = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		}
-  	}
+  	},
+    fontFamily: {
+      sans: ['inter', 'sans-serif'], // Use the CSS variable defined earlier
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };

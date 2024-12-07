@@ -18,7 +18,7 @@ const Hero = () => {
         {
             icon: './assets/apple-logo.svg',
             title: 'iPhone 15 Series',
-            HeroTitle: 'Up to 10% off Voucher',
+            heroTitle: 'Up to 10% off Voucher',
             button: 'Shop Now',
             btnIcon: <RiArrowRightLine />,
             heroIcon: './assets/iphone-in-hero.svg'

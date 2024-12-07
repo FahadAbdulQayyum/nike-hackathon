@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/carousel"
 import Image from "next/image"
 
-export function CarouselImage({ data }: any) {
+export function CarouselImage({ flash, data }: any) {
     const [api, setApi] = useState<CarouselApi>()
     const [current, setCurrent] = useState(0)
     const [count, setCount] = useState(0)
@@ -36,54 +36,101 @@ export function CarouselImage({ data }: any) {
             setApi={setApi}
         >
             <CarouselContent>
-                {Array.from({ length: data.length }).map((_, index) => (
-                    <CarouselItem key={index}>
-                        <div
-                            className="flex justify-center items-center bg-black "
-                        >
-                            <Card
-                                className="w-full"
+                {!flash ? (
+                    Array.from({ length: data.length }).map((_, index) => (
+                        <CarouselItem key={index}>
+                            <div
+                                className="flex justify-center items-center bg-black "
                             >
-                                <CardContent
-                                    className="flex items-center justify-center p-10 bg-black text-white w-full"
+                                <Card
+                                    className="w-full"
                                 >
-                                    <span className="flex w-full justify-between">
-                                        <span
-                                            className="flex flex-col w-[33%] space-y-4"
-                                        >
+                                    <CardContent
+                                        className="flex items-center justify-center p-10 bg-black text-white w-full"
+                                    >
+                                        <span className="flex w-full justify-between">
                                             <span
-                                                className="flex items-center"
+                                                className="flex flex-col w-[33%] space-y-4"
                                             >
-                                                <Image src={data[index].icon} alt={data[index].title} width={50} height={50} />
-                                                <p
-                                                    className="text-sm ml-5"
-                                                >{data[index].title}</p>
+                                                <span
+                                                    className="flex items-center"
+                                                >
+                                                    <Image src={data[index].icon} alt={data[index].title} width={50} height={50} />
+                                                    <p
+                                                        className="text-sm ml-5"
+                                                    >{data[index].title}</p>
+                                                </span>
+                                                <span>
+                                                    <p
+                                                        className="text-5xl font-bold"
+                                                    >{data[index].heroTitle}</p>
+                                                </span>
+                                                <span
+                                                    className="flex items-center space-x-2"
+                                                >
+                                                    <p
+                                                        // className="underline"
+                                                        className="border-b-[2px]"
+                                                    >{data[index].button}</p>
+                                                    {data[index].btnIcon}
+                                                </span>
                                             </span>
                                             <span>
-                                                <p
-                                                    className="text-5xl font-bold"
-                                                >{data[index].heroTitle}</p>
+                                                <Image src={data[index].heroIcon} alt={data[index].title} width={400} height={400} />
                                             </span>
+                                        </span>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ))
+                ) : (
+                    // Array.from({ length: data.length / 2 }).map((_, index) => (
+                    data?.map((_: any, index: any) => (
+                        <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/5">
+                            <div
+                                // className="flex justify-center items-center bg-black "
+                                className="flex justify-center items-center"
+                            >
+                                <Card
+                                // className="w-full"
+                                >
+                                    <CardContent
+                                    // className="flex items-center justify-center p-10 text-black w-full"
+                                    // className="flex items-center justify-center p-10 text-black"
+                                    >
+                                        <span
+                                        // className="flex w-full justify-between"
+                                        // className="flex justify-between"
+                                        >
                                             <span
-                                                className="flex items-center space-x-2"
+                                            // className="flex flex-col w-[33%] space-y-4"
                                             >
-                                                <p
-                                                    // className="underline"
-                                                    className="border-b-[2px]"
-                                                >{data[index].button}</p>
-                                                {data[index].btnIcon}
+                                                <span>
+                                                    {/* <Image src={data[index].image} alt={data[index].title} width={100} height={100} /> */}
+                                                    <Image src={_.image} alt={_.title} width={100} height={100} />
+                                                </span>
+                                                <span>{_.title}</span>
+                                                <span>{_.price}</span>
+                                                <span>{_.starCounts}</span>
                                             </span>
                                         </span>
-                                        <span>
-                                            <Image src={data[index].heroIcon} alt={data[index].title} width={400} height={400} />
-                                        </span>
-                                    </span>
-                                </CardContent>
-                            </Card>
-                        </div>
-                    </CarouselItem>
-                ))
-                }
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+
+                        // <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+                        //     <div className="p-1">
+                        //         <Card>
+                        //             <CardContent className="flex aspect-square items-center justify-center p-6">
+                        //                 <span className="text-2xl font-semibold">{index + 1}</span>
+                        //             </CardContent>
+                        //         </Card>
+                        //     </div>
+                        // </CarouselItem>
+                    ))
+                )}
             </CarouselContent >
             <CarouselPrevious />
             <CarouselNext />
