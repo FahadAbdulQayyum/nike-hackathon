@@ -93,15 +93,15 @@ export function CarouselImage({ flash, data }: any) {
                                 className="flex justify-center items-center"
                             >
                                 <Card
-                                // className="w-full"
+                                    className="w-full"
                                 >
                                     <CardContent
-                                    // className="flex items-center justify-center p-10 text-black w-full"
-                                    // className="flex items-center justify-center p-10 text-black"
+                                        // className="flex items-center justify-center p-10 text-black w-full"
+                                        className="flex items-center justify-center p-10 text-black"
                                     >
                                         <span
-                                        // className="flex w-full justify-between"
-                                        // className="flex justify-between"
+                                            // className="flex w-full justify-between"
+                                            className="flex justify-between"
                                         >
                                             <span
                                             // className="flex flex-col w-[33%] space-y-4"

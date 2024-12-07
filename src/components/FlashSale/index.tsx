@@ -21,7 +21,7 @@ const FlashSale = () => {
                 <CarouselImage flash={true} data={[
                     {
                         discount: '-40%',
-                        image: '/assets/iphone-in-hero.svg',
+                        image: '/assets/fs-1.svg',
                         title: 'HAVIT HV-G92 Gamepad',
                         price: '$120',
                         originalPrice: '$160',
@@ -30,7 +30,7 @@ const FlashSale = () => {
                     },
                     {
                         discount: '-35%',
-                        image: '/assets/iphone-in-hero.svg',
+                        image: '/assets/fs-2.svg',
                         title: 'AK-900 Wired Keyboard',
                         price: '$960',
                         originalPrice: '$1160',
@@ -39,7 +39,7 @@ const FlashSale = () => {
                     },
                     {
                         discount: '-30%',
-                        image: '/assets/iphone-in-hero.svg',
+                        image: '/assets/fs-3.svg',
                         title: 'IPS LCD Gaming Monitor',
                         price: '$370',
                         originalPrice: '$400',
@@ -48,7 +48,7 @@ const FlashSale = () => {
                     },
                     {
                         discount: '-25%',
-                        image: '/assets/iphone-in-hero.svg',
+                        image: '/assets/fs-4.svg',
                         title: 'S-Series Comfort Chair ',
                         price: '$375',
                         originalPrice: '$400',
@@ -57,7 +57,7 @@ const FlashSale = () => {
                     },
                     {
                         discount: '-25%',
-                        image: '/assets/iphone-in-hero.svg',
+                        image: '/assets/fs-5.svg',
                         title: 'S-Series Comfort Chair ',
                         price: '$375',
                         originalPrice: '$400',
