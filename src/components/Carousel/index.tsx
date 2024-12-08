@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+// import { useRouter } from 'next/router';
 import { CiHeart } from 'react-icons/ci'
 import { RiEyeLine } from "react-icons/ri";
 
@@ -17,7 +18,10 @@ import Image from "next/image"
 import { BiStar } from "react-icons/bi"
 import { BsStarFill } from "react-icons/bs"
 
-export function CarouselImage({ flash, category, data }: any) {
+export function CarouselImage({ flash, category, essential, data }: any) {
+
+    // const router = useRouter();
+
     const [api, setApi] = useState<CarouselApi>()
     const [current, setCurrent] = useState(0)
     const [count, setCount] = useState(0)
@@ -48,6 +52,7 @@ export function CarouselImage({ flash, category, data }: any) {
                             >
                                 <Card
                                     className="w-full"
+                                // onClick={() => router.push('/products')}
                                 >
                                     <CardContent
                                         className="flex items-center justify-center p-10 bg-black text-white w-full"
@@ -89,9 +94,9 @@ export function CarouselImage({ flash, category, data }: any) {
                         </CarouselItem>
                     ))
                 ) : (
-                    !category ? (
+                    !essential ? (
                         data?.map((_: any, index: any) => (
-                            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/5 rounded-none">
+                            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3 rounded-none">
                                 <div
                                     className="flex justify-center items-center"
                                 >
@@ -105,28 +110,17 @@ export function CarouselImage({ flash, category, data }: any) {
                                             className="flex flex-col justify-between font-500"
                                         >
                                             <span
-                                                // className="bg-primaryy h-48 w-full flex items-center justify-center relative group"
-                                                className="bg-primaryy h-48 w-[120%] flex items-center justify-center relative group"
+                                                className="bg-primaryy h-68 flex items-center justify-center relative group"
                                             >
-                                                {_.discountSale ? <span className="bg-tertiary absolute top-2 left-2 text-white rounded p-1 px-2 text-sm">{_.discount}</span> : ''}
-                                                <span className="bg-white absolute top-2 right-2 text-black rounded p-1 px-2 text-xl"><CiHeart /></span>
-                                                <span className="bg-white absolute top-[50px] right-2 text-black rounded p-1 px-2 text-xl"><RiEyeLine /></span>
-                                                <Image src={_.image} alt={_.title} width={100} height={100} className="z-10" />
-                                                <button className="bg-black absolute bottom-0 left-0 right-0 text-white p-1 px-2 text-[15px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    Add to Cart
-                                                </button>
+                                                <Image src={_.image} alt={_.title} width={400} height={300} className="z-10" />
                                             </span>
-                                            <span className="flex flex-col space-y-2 mt-4">
-                                                <span>{_.title}</span>
-                                                <span>
-                                                    <span className="text-tertiary mr-5">{'$' + _.price}</span>
-                                                    <span className="line-through bg-primaryy">{'$' + _.originalPrice}</span>
+                                            <span className="flex flex-col space-y-2 mt-4 w-full">
+                                                <span className="flex justify-between text-sm">
+                                                    <p>{_.title}</p>
+                                                    <p>{'₹' + _.price}</p>
                                                 </span>
-                                                <span
-                                                    className="flex"
-                                                >
-                                                    <span className="flex">{Array.from({ length: _.starCounts }).map(v => <><BsStarFill color="orange" /></>)}</span>
-                                                    <span className="px-2">({_.point})</span>
+                                                <span>
+                                                    <span className="text-gray-400">{_.category}</span>
                                                 </span>
                                             </span>
                                         </span>
@@ -138,7 +132,7 @@ export function CarouselImage({ flash, category, data }: any) {
                         )
                     ) : (
                         data?.map((_: any, index: any) => (
-                            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/5 rounded-none">
+                            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3 rounded-none">
                                 <div
                                     className="flex justify-center items-center group"
                                 >
@@ -146,22 +140,29 @@ export function CarouselImage({ flash, category, data }: any) {
                                 // className="bg-red-300"
                                 > */}
                                     <CardContent
-                                        className="flex items-center justify-center text-black border-2 hover:bg-tertiary hover:text-white"
+                                        className="flex items-center justify-center text-black bg-transparent"
                                     >
                                         <span
-                                            className="flex flex-col justify-between font-500"
+                                            className="flex flex-col justify-between font-500  relative"
                                         >
                                             <span
                                                 // className="bg-primaryy h-48 w-full flex items-center justify-center relative group"
-                                                className="h-28 flex items-center justify-center"
+                                                className="h-80 w-72"
                                             >
-                                                {/* <Image src={_.icon} alt={_.title} width={100} height={100} className="z-10 bg-white" /> */}
-                                                <Image src={_.icon} alt={_.title} width={100} height={100} className="z-10 group-hover:hidden transition duration-300" />
-                                                <Image src={_.iconHover} alt={_.title} width={100} height={100} className="z-10 hidden group-hover:block transition duration-300" />
+                                                <Image
+                                                    src={_.icon}
+                                                    alt={_.title}
+                                                    // width={100}
+                                                    // height={100}
+                                                    layout="fill" // Makes the image cover the span container
+                                                    objectFit="cover" // Ensures the image covers the container without distortion
+                                                    className="z-0 group-hover:opacity-80 transition duration-300" // Optional hover effect
+                                                // className="z-10 group-hover:hidden transition duration-300" 
+                                                />
                                             </span>
-                                            <span className="flex flex-col text-center space-y-2 mt-4">
-                                                <span>{_.title}</span>
-                                            </span>
+                                            <span className="absolute bottom-5 left-5 bg-white text-sm font-medium p-2 px-4 rounded-full">{_.category}</span>
+                                            {/* <span className="flex flex-col text-center space-y-2 mt-4">
+                                            </span> */}
                                         </span>
 
                                         {/* <span className="flex flex-col justify-between font-500 group">

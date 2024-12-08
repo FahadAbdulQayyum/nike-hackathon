@@ -1,44 +1,39 @@
-import React from 'react'
-import CustomCategory from '../CustomCategory'
-import Image from 'next/image'
-import { CarouselImage } from '../Carousel'
-import { RiArrowRightLine } from "react-icons/ri";
 
-const Hero = () => {
+import React from "react";
+import Image from "next/image";
 
-    const data = [
-        {
-            icon: './assets/apple-logo.svg',
-            title: 'iPhone 14 Series',
-            heroTitle: 'Up to 10% off Voucher',
-            button: 'Shop Now',
-            btnIcon: <RiArrowRightLine />,
-            heroIcon: './assets/iphone-in-hero.svg'
-        },
-        {
-            icon: './assets/apple-logo.svg',
-            title: 'iPhone 15 Series',
-            heroTitle: 'Up to 10% off Voucher',
-            button: 'Shop Now',
-            btnIcon: <RiArrowRightLine />,
-            heroIcon: './assets/iphone-in-hero.svg'
-
-        },
-    ]
-
+const Hero: React.FC = () => {
     return (
-        <div className="px-standardSize flex">
-            <div>
-                <CustomCategory />
-            </div>
-            <div
-                className="flex items-center justify-center w-full ml-14"
-            >
-                <CarouselImage data={data} />
-                {/* <Image src={"/assets/Exclusive.svg"} alt="hero" width={300} height={300} /> */}
-            </div>
+        <div className="relative h-screen mx-standardSize">
+            <Image
+                src="/assets/hero-image.svg"
+                alt="Hero Image"
+                layout="fill" // Makes the image fill its parent container
+                objectFit="cover" // Ensures the image covers the container
+                priority // Ensures the hero image is loaded quickly
+            />
         </div>
-    )
-}
+    );
+};
 
-export default Hero
+export default Hero;
+
+
+
+
+
+
+
+// // import React from 'react'
+// // import Image from 'next/image'
+
+// // const Hero = () => {
+
+// //     return (
+// //         <div className="px-standardSize flex">
+// //             <Image src={"/assets/hero-image.svg"} alt={"hero"} width={100} height={100} />
+// //         </div>
+// //     )
+// // }
+
+// // export default Hero
